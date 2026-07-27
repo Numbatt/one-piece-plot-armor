@@ -144,10 +144,10 @@ and spoiler vectors. Structure: **shared core + thin per-platform adapters.**
      the proxy, cached).
 - **Shared blur/reveal UI** injected uniformly across platforms.
 
-## 8. Phasing (hackathon-shaped)
+## 8. Phasing
 
-- **MVP / demo:** Reddit adapter + manual episode input + gazetteer cascade +
-  Haiku-proxy for the residual + blur/reveal. Demoable and *precise* on its own.
+- **MVP:** Reddit adapter + manual episode input + gazetteer cascade +
+  Haiku-proxy for the residual + blur/reveal. Usable and *precise* on its own.
 - **P1:** Twitter/X adapter + hashtag/chapter-number signals.
 - **P2:** Instagram adapter + media-blur heuristics.
 - **P3:** vision-based image spoiler detection.
@@ -182,6 +182,6 @@ is high and compare gazetteer-only vs +LLM vs prompt variants — not vibes.
 
 - Vector store: in-proxy JSON+cosine vs a hosted vector DB.
 - How much of the gazetteer ships client-side vs proxy-only.
-- Media-spoiler ambition for the hackathon window (heuristic vs vision).
+- Media-spoiler ambition for the first release (heuristic vs vision).
 - One Piece Wiki ingestion: scraping approach, ToS/rate limits, refresh cadence.
 - Severity taxonomy + per-severity blur treatment (hard blur vs soft mark).

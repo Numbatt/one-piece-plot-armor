@@ -1,0 +1,3 @@
+- 2026-07-27T00:25:15.034Z  precision 94%  severe-recall 93%  (missed 1, wrongly-hidden 1, of 29 cases)
+- 2026-07-27T01:37:11.345Z  Gemma 4 31B · Cerebras: precision 100%, severe-recall 100%, p50 386ms, $0.384/1k  |  Gemma 4 31B · GPU: precision 94%, severe-recall 100%, p50 958ms, $0.067/1k  |  Claude Haiku 4.5: precision 100%, severe-recall 80%, p50 1266ms, $0.585/1k
+- 2026-07-27T01:42:08.789Z  Gemma 4 31B · Cerebras: precision 100%, severe-recall 100%, p50 384ms, $0.385/1k  |  Gemma 4 31B · GPU: precision 100%, severe-recall 100%, p50 1074ms, $0.067/1k  |  Claude Haiku 4.5: precision 100%, severe-recall 80%, p50 1299ms, $0.579/1k

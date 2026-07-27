@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        width: 260px;
+        margin: 0;
+        padding: 16px;
+        background: #0f1115;
+        color: #e6e6e6;
+      }
+      h1 { font-size: 15px; margin: 0 0 4px; }
+      p.sub { font-size: 12px; color: #9aa0a6; margin: 0 0 14px; }
+      label { display: block; font-size: 12px; margin-bottom: 6px; }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        font-size: 15px;
+        border: 1px solid #2a2f3a;
+        border-radius: 6px;
+        background: #171a21;
+        color: #fff;
+      }
+      button {
+        margin-top: 12px;
+        width: 100%;
+        padding: 9px;
+        font-size: 14px;
+        border: 0;
+        border-radius: 6px;
+        background: #d23b3b;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover { background: #e04747; }
+      .status { margin-top: 10px; font-size: 12px; color: #7bd88f; min-height: 14px; }
+    </style>
+  </head>
+  <body>
+    <h1>🛡️ Plot Armor</h1>
+    <p class="sub">Spoilers past your episode get blurred.</p>
+    <label for="episode">I'm caught up through episode:</label>
+    <input id="episode" type="number" min="1" placeholder="e.g. 1000" />
+    <button id="save">Save</button>
+    <div class="status" id="status"></div>
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

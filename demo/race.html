@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plot Armor — Gemma 4: Cerebras vs GPU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./race.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="rig-head">
+      <div class="rig-head__title">
+        <span class="eyebrow">One Piece Plot Armor · classify-proxy bench</span>
+        <h1>
+          Gemma&nbsp;4&nbsp;31B
+          <span class="vs">on Cerebras</span>
+          <em>vs</em>
+          <span class="vs">on GPU</span>
+        </h1>
+        <p class="subtitle">
+          Same open weights. Same prompt. Same schema. Same batch size. The only variable is the
+          silicon underneath — so whatever gap you see below is hardware.
+        </p>
+      </div>
+
+      <div class="rig-head__spec">
+        <dl class="spec">
+          <div><dt>viewer at</dt><dd id="spec-episode">ep 1000</dd></div>
+          <div><dt>comments</dt><dd id="spec-count">—</dd></div>
+          <div><dt>batch</dt><dd id="spec-batch">8</dd></div>
+          <div><dt>in flight</dt><dd id="spec-conc">4</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <section class="controls">
+      <button id="start" class="start" type="button">
+        <span class="start__key">▶</span>
+        <span class="start__label">Start race</span>
+      </button>
+
+      <label class="ctl">
+        <span>Load</span>
+        <select id="mode">
+          <option value="race">One screen — 60 comments</option>
+          <option value="firehose">Firehose — 300 comments</option>
+        </select>
+      </label>
+
+      <label class="ctl ctl--check">
+        <input type="checkbox" id="run-eval" checked />
+        <span>Also score accuracy &amp; cost (30 cases × 3 lanes)</span>
+      </label>
+
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <main class="lanes" id="lanes"></main>
+
+    <section class="board" id="board">
+      <div class="board__head">
+        <h2>Accuracy &amp; cost</h2>
+        <p>
+          Speed is only half the question. This runs the project's 30-case labelled eval set
+          through all three lanes — including Claude Haiku 4.5, the classifier the extension
+          ships today. <strong>Precision must stay at 100%</strong>: over-blurring is annoying,
+          but a missed spoiler is irreversible.
+        </p>
+      </div>
+      <div class="board__scroll">
+        <table class="board__table">
+          <thead>
+            <tr>
+              <th>Lane</th>
+              <th>Hardware</th>
+              <th class="num">Precision</th>
+              <th class="num">Recall</th>
+              <th class="num">Severe recall</th>
+              <th class="num">p50 batch</th>
+              <th class="num">p95 batch</th>
+              <th class="num">$ / 1k comments</th>
+            </tr>
+          </thead>
+          <tbody id="board-body">
+            <tr class="board__empty">
+              <td colspan="8">Not run yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="board__foot">
+        Cost is computed from measured token usage at published list prices. Cerebras sells
+        latency, not price per token — expect it to win the clock and lose the dollar column.
+      </p>
+    </section>
+
+    <footer class="rig-foot">
+      <span>Fairness controls in effect:</span>
+      <ul>
+        <li>byte-identical system prompt, user prompt &amp; JSON schema across lanes</li>
+        <li>identical batch size and concurrency limit</li>
+        <li>one discarded warm-up call per lane before timing starts</li>
+        <li>lanes run concurrently, so network drift hits both equally</li>
+        <li>timings measured server-side, at the call site</li>
+      </ul>
+    </footer>
+
+    <script type="module" src="./race.ts"></script>
+  </body>
+</html>

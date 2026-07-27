@@ -11,5 +11,5 @@ documented world is what lets us be *precise* instead of paranoid.
 
 See [PLAN.md](./PLAN.md) for the architecture and build plan.
 
-> Status: hackathon build, started fresh. Reuses lessons (not code history) from
-> an earlier general-purpose prototype.
+> Status: started fresh. Reuses lessons (not code history) from an earlier
+> general-purpose prototype.
